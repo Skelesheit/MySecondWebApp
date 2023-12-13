@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    background: linear-gradient(to right, #6813cc, #2e68f6);
+    animation: gradientAnimation 5s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Центрирование по горизонтали */
+}
+
+.container {
+    display: flex;
+    justify-content: space-between; /* Равномерное распределение между дочерними элементами */
+    align-items: center; /* Выравнивание по вертикали */
+    max-width: 1000px; /* Увеличил максимальную ширину контейнера */
+    width: 100%;
+}
+
+.image-container {
+    max-width: 30%;
+    margin-right: 20px;
+}
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+.login-container {
+    background-color: #332d2d;
+    border-radius: 10px;
+    padding: 30px; /* Оставил отступы внутри прямоугольника */
+    width: 70%; /* Увеличил ширину прямоугольника */
+    max-width: 600px; /* Ограничил максимальную ширину прямоугольника */
+    display: flex; /* Добавил flex-контейнер для кнопок */
+    flex-direction: column; /* Столбец, чтобы кнопки были одна под другой на узких экранах */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    color: #ffffff;
+}
+
+.form-control {
+    background-color: #343a40;
+    color: #ffffff;
+    border: 1px solid #6c757d;
+}
+
+.form-text {
+    color: #6c757d;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: flex-start; /* Разместили кнопки справа */
+    margin-top: 10px; /* Небольшой отступ сверху */
+}
+
+.btn-primary,
+.btn-registration {
+    width: 15%; /* Установим фиксированную ширину кнопок в 15% от родительского контейнера */
+    margin-left: 10px; /* Добавил отступ между кнопками */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: 1px solid #007bff;
+}
+
+.btn-registration {
+    background-color: #28a745;
+    border: 1px solid #28a745;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+

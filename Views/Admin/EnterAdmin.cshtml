@@ -1,0 +1,54 @@
+﻿@model CreateAppViewModel
+@{
+    ViewData["Title"] = "EnterAdmin";
+}
+
+<h1>Уголок админа :)</h1>
+
+<div class="card col-md-12">
+    <form asp-action="EnterAdmin" asp-controller="Home">
+    <div asp-validation-summary="All" >
+    
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" asp-for="Name" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Tag</label>
+        <input type="text" asp-for="Tag" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Company</label>
+        <input type="text" asp-for="Company" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Mark</label>
+        <input type="text" asp-for="Mark" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">IconSource</label>
+        <input type="text" asp-for="IconSource"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">ImageSource</label>
+        <input type="text" asp-for="ImageSource"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">DescriptionSource</label>
+        <input type="text" asp-for="DescriptionSource"/>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="text" asp-for="Price"/>
+    </div>
+     
+        <button type="submit" class="btn-primary float-end"> Отправить </button>
+    </div>
+
+    
+
+
+    </form>
+
+
+</div>

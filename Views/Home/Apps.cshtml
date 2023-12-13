@@ -1,0 +1,12 @@
+﻿@model List<AppS> 
+@{
+    ViewData["Title"] = "Apps";
+}
+
+<h1>Apps</h1>
+<ul>
+@foreach(var app in Model)
+{
+    <li> @app.Name  </li>
+}
+</ul>

@@ -1,0 +1,69 @@
+﻿@model (User, List<AppS>)
+@{
+    ViewData["Title"] = "PersonalAccount";
+}
+@{
+    User user = Model.Item1;
+    List<AppS> apps = Model.Item2;
+}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Your Page</title>
+     
+    <link rel="stylesheet" href="~/css/personal account.css" asp-append-version="true" >
+</head>
+
+<body>
+    <form asp-action="Account" asp-controller="Account" method="post"> 
+    <div class="container mt-5">
+        <div class="rounded-rectangle">
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Адрес электронной почты</label>
+            <input type="email" class="form-control"  placeholder="name@example.com" value=@user.Email>
+            </div>
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Пароль</label>
+            <input type="password" class="form-control"  placeholder="Password" value="">
+            </div>
+            <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Имя пользователя</label>
+            <input type="text" class="form-control"  placeholder="Name" value=@user.Name >
+            </div>
+            <button type="submit" class="btn btn-outline-success">Изменить </button>
+            <br/>
+            <h2>Установленные приложения:</h2>
+        </div>
+    </div>
+    </form>
+    @if(apps.Count == 0)
+    {
+        <div class="application">
+            <h5> Вы не установили приложения</h5>
+            <button type="button" href="Home/Index/Apps/" class="btn btn-link">Скачать первое приложение!</button>
+        </div>    
+    }
+    else
+    {
+        @foreach(AppS app in apps)
+    {
+        <div class="application">
+           <img src="~/lib/images/@app.IconSource" alt="App Icon" class="app-icon">
+                <div class="app-info">
+                    <p class="app-name">@app.Name</p>
+                    <div class="app-buttons">
+                        <a href="/Home/Apps/@app.Id" class="btn btn-outline-primary">Открыть</a>
+                        <a href="/Home/Apps/Delete/@app.Id" class="btn btn-outline-danger">Удалить</a>
+                    </div>
+                </div>
+        </div>  
+    }
+
+    }
+    
+
+           
+     
+</body>
+</html>

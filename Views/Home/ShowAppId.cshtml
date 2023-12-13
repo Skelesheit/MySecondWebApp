@@ -1,0 +1,71 @@
+﻿@model (AppS, User)
+@{
+    ViewData["Title"] = "ShowAppId";
+}
+@{
+    AppS app = Model.Item1;
+    User user = Model.Item2;
+    var imageSource = app.ImageSource.Split(',');
+    string image1 = imageSource[0];
+    string image2 = imageSource[1];
+    string description;
+    string path = "wwwroot/" + "lib/" + "AppDescription/" + app.DescriptionSource;
+    using(StreamReader rd = new StreamReader(path))
+    {
+        description = rd.ReadToEnd();
+    }
+
+    bool isInstalled = false;
+    if(user.IstallApps.Length > 0)
+    {
+        if (user.IstallApps.Contains(app.Id.ToString()))
+        {
+            isInstalled = true;
+        }
+    } 
+    
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/AppId.css" asp-append-version="true"/>
+</head>
+
+<body>
+    <div id="container">
+        <div id="appIcon">
+            <!-- Здесь нужно добавить тег для вашей иконки -->
+            <img src="~/lib/images/@app.IconSource" alt="App Icon" id="appIcon" />
+        </div>
+        <div id="appInfo">
+            <h1>@app.Name</h1>
+            <p>@app.Company</p>
+            <p>@app.Tag</p>
+            <p>@app.Mark</p>
+            <!-- Дополнительная информация о приложении, если необходимо -->
+            @if (isInstalled)
+            {
+                <a href="/Home/Apps/Delete/@app.Id" class="btn btn-primary mt-3">Удалить</a>
+            }
+            else
+            {
+                <a href="/Home/Apps/Install/@app.Id" class="btn btn-primary mt-3">Скачать</a>
+            }
+            
+        </div>
+        
+    </div>
+
+    <div id="imageContainer">
+            <img src="~/lib/images/AppsSource/AppImage/@image1" alt="Дополнительное изображение 1" class="additionalImage">
+            <img src="~/lib/images/AppsSource/AppImage/@image2" alt="Дополнительное изображение 2" class="additionalImage">
+    </div>
+
+    <div id="descriptionBox">
+            <h2>Описание</h2>
+            <p> @description</p>
+    </div>
+
+</body>
+

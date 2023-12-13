@@ -1,0 +1,9 @@
+MRPC allows you to display your Apple Music activity in your Discord Rich Presence. Made with Electron.
+
+With AMRPC, you can easily keep your Discord friends informed about what you're listening to on Apple Music. Whether you're jamming out to your favorite playlist or playing an Taylor Swift album, AMRPC will automatically update your Discord Rich Presence to show the current song.
+
+It's easy to use; simply install the app, and AMRPC will handle the rest. No manual updates or input required.
+
+So if you want to share your Apple Music activity with your Discord friends, give AMRPC a try today!
+
+AMRPC works with iTunes and Apple Music (Preview)
